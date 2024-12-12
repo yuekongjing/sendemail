@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*浏览器JS控制台取QQ群官网的QQ群内所有QQ账号
+ *本JS代码程序只对“QQ群成员管理”网站界面有效果
+ *在浏览器控制台输入回车即可
+ *QQ群成员管理地址：https://qun.qq.com/member.html
+ */
+// 首先，获取id为"groupMember"的元素
+var groupMember = document.getElementById('groupMember');
+
+// 然后，在"groupMember"下查找class为"list"的元素
+var listElements = groupMember.getElementsByClassName('list');
+
+// 创建一个空数组来存储所有的"mb"类元素
+var mbElements = [];
+
+// 创建一个数组用于存储所有符合条件的第五个子元素的值
+var fifthChildValues = [];
+
+// 遍历所有"list"类元素，收集它们内部的"mb"类元素
+for (var i = 0; i < listElements.length; i++) {
+    var mbInList = listElements[i].getElementsByClassName('mb');
+    // 将找到的"mb"元素添加到mbElements数组中
+    for (var j = 0; j < mbInList.length; j++) {
+        mbElements.push(mbInList[j]);
+    }
+}
+console.log(mbElements);
+
+
+mbElements.forEach(function(mbElement, index) {
+    // 获取当前"mb"类元素下的所有直接子元素
+    var childElements = mbElement.children;
+
+    // 检查当前"mb"类元素内是否有至少5个子元素
+    if (childElements.length >= 5) {
+        // 获取当前"mb"类元素内部的第五个子元素（索引为4）的文本内容
+        var fifthChildValue = childElements[4].textContent.trim();
+         // 将值添加到fifthChildValues数组中
+         fifthChildValues.push(fifthChildValue);
+    } else {
+        console.log(`第${index + 1}个"mb"元素内的子元素不足五个`);
+    }
+});
+console.log(fifthChildValues);
+
+
+</script>
+</html>
