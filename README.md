@@ -1,5 +1,4 @@
-# sendemail
-批量发送qq邮件给群聊里面的qq好友
+# 批量发送qq邮件给群聊里面的qq好友
 
 **前置条件**
 1.获取到自己qq邮箱的smtp授权码：https://jingyan.baidu.com/article/6079ad0eb14aaa28fe86db5a.html
